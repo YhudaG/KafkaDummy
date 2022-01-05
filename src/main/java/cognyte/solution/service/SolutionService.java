@@ -21,7 +21,7 @@ public class SolutionService {
 
     public String transferMessage(RequestBodyModel requestBodyModel) throws Exception {
         if (requestBodyModel == null) {
-            throw new Exception("");
+            throw new AppException(new ApiError(HttpStatus.BAD_REQUEST, "Request body is empty"));
         }
 
         Map<String, String> messageTemplate = requestBodyModel.getMessageTemplate();
